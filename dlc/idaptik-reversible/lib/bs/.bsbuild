@@ -1,0 +1,20 @@
+16
+CLI
+Puzzle
+Scoring
+03_xor_swap
+02_fibonacci
+PuzzleSolver
+PuzzleValidator
+04_gcd_euclidean
+05_sorting_network
+01_hello_reversible
+01_quantum_swap_gate
+09_complete_workflow
+06_bitwise_operations
+07_puzzle_solver_demo
+02_reversible_encryption
+08_performance_comparison
+src	src/core	examples	examples/advanced	
+1
+0

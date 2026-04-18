@@ -1,0 +1,59 @@
+rescript = 1
+g_finger := /var$REPOS_DIR/idaptik/dlc/idaptik-reversible/node_modules/idaptik-vm/lib/ocaml/install.stamp
+rule astj
+  command = /var$REPOS_DIR/idaptik/dlc/idaptik-reversible/node_modules/.deno/@rescript+linux-x64@12.1.0/node_modules/@rescript/linux-x64/bin/bsc.exe -runtime-path /var$REPOS_DIR/idaptik/dlc/idaptik-reversible/node_modules/.deno/@rescript+runtime@12.1.0/node_modules/@rescript/runtime  -warn-error +101 -open Belt -absname -bs-ast -o $out $i
+o examples/03_xor_swap.ast : astj ../../examples/03_xor_swap.res
+rule deps
+  command = /var$REPOS_DIR/idaptik/dlc/idaptik-reversible/node_modules/.deno/@rescript+linux-x64@12.1.0/node_modules/@rescript/linux-x64/bin/bsb_helper.exe -hash c8b64c56f3711835d806ed366cb49c46 $in
+  restat = 1
+o examples/03_xor_swap.d : deps examples/03_xor_swap.ast
+rule mij
+  command = /var$REPOS_DIR/idaptik/dlc/idaptik-reversible/node_modules/.deno/@rescript+linux-x64@12.1.0/node_modules/@rescript/linux-x64/bin/bsc.exe -runtime-path /var$REPOS_DIR/idaptik/dlc/idaptik-reversible/node_modules/.deno/@rescript+runtime@12.1.0/node_modules/@rescript/runtime -I src/core -I src -I examples/advanced -I examples -I /var$REPOS_DIR/idaptik/dlc/idaptik-reversible/node_modules/idaptik-vm/lib/ocaml -open Belt  -warn-error +101 -bs-package-name idaptik-reversible -bs-package-output esmodule:$in_d:.res.js $i
+  dyndep = 1
+  restat = 1
+o examples/03_xor_swap.cmj examples/03_xor_swap.cmi ../../examples/03_xor_swap.res.js : mij examples/03_xor_swap.ast
+o examples/02_fibonacci.ast : astj ../../examples/02_fibonacci.res
+o examples/02_fibonacci.d : deps examples/02_fibonacci.ast
+o examples/02_fibonacci.cmj examples/02_fibonacci.cmi ../../examples/02_fibonacci.res.js : mij examples/02_fibonacci.ast
+o examples/04_gcd_euclidean.ast : astj ../../examples/04_gcd_euclidean.res
+o examples/04_gcd_euclidean.d : deps examples/04_gcd_euclidean.ast
+o examples/04_gcd_euclidean.cmj examples/04_gcd_euclidean.cmi ../../examples/04_gcd_euclidean.res.js : mij examples/04_gcd_euclidean.ast
+o examples/05_sorting_network.ast : astj ../../examples/05_sorting_network.res
+o examples/05_sorting_network.d : deps examples/05_sorting_network.ast
+o examples/05_sorting_network.cmj examples/05_sorting_network.cmi ../../examples/05_sorting_network.res.js : mij examples/05_sorting_network.ast
+o examples/01_hello_reversible.ast : astj ../../examples/01_hello_reversible.res
+o examples/01_hello_reversible.d : deps examples/01_hello_reversible.ast
+o examples/01_hello_reversible.cmj examples/01_hello_reversible.cmi ../../examples/01_hello_reversible.res.js : mij examples/01_hello_reversible.ast
+o examples/09_complete_workflow.ast : astj ../../examples/09_complete_workflow.res
+o examples/09_complete_workflow.d : deps examples/09_complete_workflow.ast
+o examples/09_complete_workflow.cmj examples/09_complete_workflow.cmi ../../examples/09_complete_workflow.res.js : mij examples/09_complete_workflow.ast
+o examples/06_bitwise_operations.ast : astj ../../examples/06_bitwise_operations.res
+o examples/06_bitwise_operations.d : deps examples/06_bitwise_operations.ast
+o examples/06_bitwise_operations.cmj examples/06_bitwise_operations.cmi ../../examples/06_bitwise_operations.res.js : mij examples/06_bitwise_operations.ast
+o examples/07_puzzle_solver_demo.ast : astj ../../examples/07_puzzle_solver_demo.res
+o examples/07_puzzle_solver_demo.d : deps examples/07_puzzle_solver_demo.ast
+o examples/07_puzzle_solver_demo.cmj examples/07_puzzle_solver_demo.cmi ../../examples/07_puzzle_solver_demo.res.js : mij examples/07_puzzle_solver_demo.ast
+o examples/08_performance_comparison.ast : astj ../../examples/08_performance_comparison.res
+o examples/08_performance_comparison.d : deps examples/08_performance_comparison.ast
+o examples/08_performance_comparison.cmj examples/08_performance_comparison.cmi ../../examples/08_performance_comparison.res.js : mij examples/08_performance_comparison.ast
+o examples/advanced/01_quantum_swap_gate.ast : astj ../../examples/advanced/01_quantum_swap_gate.res
+o examples/advanced/01_quantum_swap_gate.d : deps examples/advanced/01_quantum_swap_gate.ast
+o examples/advanced/01_quantum_swap_gate.cmj examples/advanced/01_quantum_swap_gate.cmi ../../examples/advanced/01_quantum_swap_gate.res.js : mij examples/advanced/01_quantum_swap_gate.ast
+o examples/advanced/02_reversible_encryption.ast : astj ../../examples/advanced/02_reversible_encryption.res
+o examples/advanced/02_reversible_encryption.d : deps examples/advanced/02_reversible_encryption.ast
+o examples/advanced/02_reversible_encryption.cmj examples/advanced/02_reversible_encryption.cmi ../../examples/advanced/02_reversible_encryption.res.js : mij examples/advanced/02_reversible_encryption.ast
+o src/CLI.ast : astj ../../src/CLI.res
+o src/CLI.d : deps src/CLI.ast
+o src/CLI.cmj src/CLI.cmi ../../src/CLI.res.js : mij src/CLI.ast
+o src/core/Puzzle.ast : astj ../../src/core/Puzzle.res
+o src/core/Puzzle.d : deps src/core/Puzzle.ast
+o src/core/Puzzle.cmj src/core/Puzzle.cmi ../../src/core/Puzzle.res.js : mij src/core/Puzzle.ast
+o src/core/Scoring.ast : astj ../../src/core/Scoring.res
+o src/core/Scoring.d : deps src/core/Scoring.ast
+o src/core/Scoring.cmj src/core/Scoring.cmi ../../src/core/Scoring.res.js : mij src/core/Scoring.ast
+o src/core/PuzzleSolver.ast : astj ../../src/core/PuzzleSolver.res
+o src/core/PuzzleSolver.d : deps src/core/PuzzleSolver.ast
+o src/core/PuzzleSolver.cmj src/core/PuzzleSolver.cmi ../../src/core/PuzzleSolver.res.js : mij src/core/PuzzleSolver.ast
+o src/core/PuzzleValidator.ast : astj ../../src/core/PuzzleValidator.res
+o src/core/PuzzleValidator.d : deps src/core/PuzzleValidator.ast
+o src/core/PuzzleValidator.cmj src/core/PuzzleValidator.cmi ../../src/core/PuzzleValidator.res.js : mij src/core/PuzzleValidator.ast

@@ -1,0 +1,1 @@
+{ "dirs" : [ "examples" , "examples/advanced" , "src" , "src/core" ] , "pkgs" : [ [ "idaptik-vm" , "/var$REPOS_DIR/idaptik/dlc/idaptik-reversible/node_modules/idaptik-vm" ] ] , "generated" : [] }

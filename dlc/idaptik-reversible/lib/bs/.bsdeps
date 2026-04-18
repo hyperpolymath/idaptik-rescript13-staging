@@ -1,0 +1,11 @@
+12.1.0
+/var$REPOS_DIR/idaptik/dlc/idaptik-reversible
+0
+0
+rescript.json	0x1.a661d064d5187p+30
+examples	0x1.a6833b0f80d5ep+30
+examples/advanced	0x1.a6833b0f2cdd4p+30
+src	0x1.a6834941c726bp+30
+src/core	0x1.a6833b0f55d36p+30
+===
+/var$REPOS_DIR/idaptik/dlc/idaptik-reversible/node_modules/.deno/@rescript+linux-x64@12.1.0/node_modules/@rescript/linux-x64/bin/rescript-legacy.exe	0x1.a61d646a2d641p+30
